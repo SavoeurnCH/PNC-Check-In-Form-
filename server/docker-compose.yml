@@ -1,0 +1,42 @@
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: pnc_visitor_app
+      MYSQL_ROOT_PASSWORD: root_dev_password
+    ports:
+      # Host 3307 avoids clashing with a local MySQL/MariaDB already using
+      # 3306 (e.g. XAMPP) — the api container still talks to it on 3306
+      # internally via the `mysql` service name.
+      - '3307:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - '8000:8000'
+    environment:
+      NODE_ENV: development
+      PORT: 8000
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: root_dev_password
+      DB_NAME: pnc_visitor_app
+      JWT_SECRET: change-me-to-a-long-random-string
+      JWT_EXPIRES_IN: 8h
+      CORS_ORIGIN: http://localhost:5173
+
+volumes:
+  mysql_data:

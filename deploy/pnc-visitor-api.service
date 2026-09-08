@@ -1,0 +1,35 @@
+; PNC & PSS Visitor Check-In — systemd unit for the Node API.
+;
+; Copy to /etc/systemd/system/pnc-visitor-api.service, replace the two
+; absolute paths and the user/group, then:
+;   sudo systemctl daemon-reload
+;   sudo systemctl enable --now pnc-visitor-api
+;
+; This keeps the API running in the background, restarts it if it crashes,
+; and starts it automatically on server reboot — nothing else in this repo
+; does that (running `node src/server.js` by hand dies with your SSH
+; session).
+
+[Unit]
+Description=PNC & PSS Visitor Check-In API
+After=network.target mysql.service
+
+[Service]
+Type=simple
+# Dedicated non-root system user recommended: sudo adduser --system --group pncapp
+User=pncapp
+Group=pncapp
+WorkingDirectory=/var/www/pnc-visitor-app/server
+EnvironmentFile=/var/www/pnc-visitor-app/server/.env
+ExecStart=/usr/bin/node src/server.js
+Restart=on-failure
+RestartSec=5
+
+# Basic sandboxing — the process only needs its own working directory.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/www/pnc-visitor-app/server
+
+[Install]
+WantedBy=multi-user.target
