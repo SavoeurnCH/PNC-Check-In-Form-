@@ -12,7 +12,7 @@ const steps = computed(() => Array.from({ length: props.total }, (_, i) => i + 1
 <template>
   <div class="flex flex-col items-center gap-2">
     <p class="text-xs text-gray-400">
-      <span lang="km">ជំហានទី</span> / Step
+      <span lang="km">ជំហាន</span> / Step
     </p>
     <ol class="flex items-center" aria-label="Progress">
       <li v-for="step in steps" :key="step" class="flex items-center">
