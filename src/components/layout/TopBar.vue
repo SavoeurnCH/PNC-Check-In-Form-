@@ -31,9 +31,9 @@ const isHelpOpen = ref(false)
       </span>
       <div class="text-white">
         <p lang="km" class="text-sm font-medium leading-tight sm:text-base">
-          ប្រព័ន្ធថែរវត្តមានភ្ញៀវមកទស្សនា អង្គការ PNC - PSS
+          ទម្រង់ចុះឈ្មោះភ្ញៀវមកទស្សនកិច្ចអង្គការ PNC - PSS
         </p>
-        <p class="text-xs leading-tight text-white/90 sm:text-sm">PNC &amp; PSS Visitor Check-In</p>
+        <p class="text-xs leading-tight text-white/90 sm:text-sm">PNC - PSS Visitor Check-In System</p>
       </div>
     </div>
 

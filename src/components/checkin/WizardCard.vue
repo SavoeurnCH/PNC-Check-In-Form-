@@ -13,7 +13,7 @@ defineProps({
   <div class="w-full max-w-lg rounded-2xl bg-white p-6 shadow-card sm:p-8">
     <div class="flex items-center justify-center gap-3">
       <img :src="pnLogo" alt="Passerelles Numeriques logo" class="h-12 w-12 rounded-full" />
-      <img :src="pssLogo" alt="PSS logo" class="h-12 w-12 rounded-full" />
+      <img :src="pssLogo" alt="PSS logo" class="h-13 w-13 rounded-full" />
     </div>
 
     <h1 class="mt-4 text-center text-xl font-bold text-gray-900 sm:text-2xl">

@@ -26,8 +26,8 @@ const store = useCheckInStore()
       />
       <BaseInput
         v-model="store.form.personToMeet"
-        label-km="បុគ្គល/ផ្នែក ដែលត្រូវជួប"
-        label-en="Person or Department To Meet"
+        label-km="បុគ្គល ឬ ផ្នែក ដែលត្រូវជួប"
+        label-en="Person or Department You Are Meeting"
         placeholder="e.g. Mr. Sim - Education manager"
         required
       />

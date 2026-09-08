@@ -36,7 +36,7 @@ watch(
       <span lang="km">លក្ខខណ្ឌ និងគោលការណ៍</span> / TERMS &amp; POLICIES
     </h2>
     <p lang="km" class="mt-1 text-center text-xs text-gray-500">
-      សូមអាន និងចុចលក្ខខណ្ឌក្នុងប្រអប់និមួយៗ។
+      សូមអាន និងចុចលក្ខខណ្ឌក្នុងប្រអប់នីមួយៗ។
     </p>
     <p class="text-center text-xs text-gray-500">Please read and check each box</p>
 
@@ -60,7 +60,7 @@ watch(
     <WizardNavButtons
       :next-disabled="!store.isCurrentTermValid"
       :next-loading="store.isSubmitting"
-      :next-label="store.isLastTermCard ? 'ដាក់ស្នើ/Submit' : undefined"
+      :next-label="store.isLastTermCard ? 'ចុះឈ្មោះចូល/Check-In' : undefined"
       @back="store.goBack"
       @next="handleNext"
     />
