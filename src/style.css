@@ -1,0 +1,48 @@
+/* Latin UI font + Khmer script font, matching the Figma type (Inter-like sans + Khmer support) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Brand palette sampled from the Figma export (PNC & PSS Visitor Check-In) */
+  --color-brand-50: #e9f7fd;
+  --color-brand-100: #cceffb;
+  --color-brand-200: #99dff7;
+  --color-brand-300: #5cc8ee;
+  --color-brand-400: #2eaee0;
+  --color-brand-500: #179bd7;
+  --color-brand-600: #1280b3;
+  --color-brand-700: #106b94;
+  --color-brand-800: #0f5878;
+  --color-brand-900: #0c4360;
+
+  --color-accent-orange: #f79737;
+  --color-accent-orange-dark: #e57f1b;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f7f8fa;
+  --color-secondary-bg: #fef2e7;
+  --color-secondary-text: #4c4c4c;
+
+  --font-sans: 'Inter', 'Noto Sans Khmer', system-ui, sans-serif;
+  --font-khmer: 'Noto Sans Khmer', 'Inter', system-ui, sans-serif;
+
+  --shadow-card: 0 20px 45px -15px rgb(15 88 120 / 0.35);
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Khmer glyphs render better with the dedicated Khmer face; English stays on Inter */
+:lang(km) {
+  font-family: var(--font-khmer);
+}
